@@ -25,13 +25,14 @@ canvas {
   z-index: 2;
   width: 480px;
   height: 780px;
+  
   margin: auto;
   top: 50%;
   transform: translateY(-50%);
   border-radius: 24px;
   background: radial-gradient(circle at top, #2c2f7a, #0b0f2f);
   box-shadow: 0 25px 60px rgba(0,0,0,0.85);
-  overflow: hidden;
+  overflow: auto;
   color: white;
   background-image:
     radial-gradient(circle at top, #2c2f7a, #0b0f2f),
