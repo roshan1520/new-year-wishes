@@ -212,6 +212,14 @@ function shareWish() {
 }
 /* ================= QUOTES ================= */
 const quotes = [
+  'Any new beginning is forged from the shards of the past, not from the abandonment of the past.',
+  'In our perfect ways, in the ways we are beautiful, in the ways we are human — we are here. Happy New Year’s. Let’s make it ours.',
+  "This year's book, at midnight turns to footnote in the next.",
+  'You are never too old to set another goal or to dream a new dream.',
+
+  'I don’t know where I’m going from here, but I promise it won’t be boring.',
+  'New year is the glittering light to brighten the dream-lined pathway of future.',
+  'नया रंग हो नई उमंगे,आंखो में उल्लास नया \nनए गगन को छू लेने का मन में हो विश्वास नया\nनए वर्ष में चलो पुराने मौसम का हम बदलें रंग\nनई बहारें लेकर आए जीवन में मधुमास नया\nनए साल 2026 की हार्दिक शुभकामनाएं!',
   'May your dreams take flight and your goals turn into achievements ✨',
   'New year, new hopes, new beginnings 🌟',
   'Let this year be the chapter where everything changes for the better 💫',
