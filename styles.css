@@ -1,0 +1,287 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+/* Canvas behind card */
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  filter: blur(0.5px);
+}
+
+/* ===== CARD ===== */
+.ny-card {
+  position: relative;
+  z-index: 2;
+  width: 480px;
+  height: 780px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 24px;
+  background: radial-gradient(circle at top, #2c2f7a, #0b0f2f);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.85);
+  overflow: hidden;
+  color: white;
+  background-image:
+    radial-gradient(circle at top, #2c2f7a, #0b0f2f),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+
+
+  /* FLOATING ANIMATION */
+  animation: floatCard 6s ease-in-out infinite,
+    glowPulse 5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%   { box-shadow: 0 25px 60px rgba(0,0,0,0.85); }
+  50%  { box-shadow: 0 30px 70px rgba(255,215,0,0.25); }
+  100% { box-shadow: 0 25px 60px rgba(0,0,0,0.85); }
+}
+
+
+
+/* Floating effect */
+@keyframes floatCard {
+  0% { transform: translateY(-50%); }
+  50% { transform: translateY(-54%); }
+  100% { transform: translateY(-50%); }
+}
+@media (hover: hover) {
+  .ny-card:hover {
+    transform: translateY(-52%) scale(1.01);
+  }
+}
+
+/* Decorative circles */
+.decor {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+.top-left { top: -50px; left: -50px; }
+.top-right { top: -50px; right: -50px; }
+.bottom-left { bottom: -50px; left: -50px; }
+.bottom-right { bottom: -50px; right: -50px; }
+
+.content {
+  height: 100%;
+  padding: 40px 25px;
+  text-align: center;
+}
+
+/* Text */
+.happy {
+  letter-spacing: 8px;
+  font-size: 1.4rem;
+  margin-top: 90px;
+}
+.newyear {
+  font-size: 3.4rem;
+  margin-top: 14px;
+}
+.year {
+  font-size: 5.2rem;
+  margin-top: 14px;
+  text-shadow: 0 0 20px rgba(255,255,255,0.45);
+}
+.message {
+  margin-top: 35px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  min-height: 70px;
+}
+
+/* Input */
+.ny-card input {
+  width: 100%;
+  margin-top: 25px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 20px;
+}
+.buttons button {
+  width: 100%;
+  padding: 12px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  color: white;
+  transition: 0.3s;
+}
+.buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px orange;
+}
+
+/* ===== TEXT POP FADE ===== */
+.animate {
+  opacity: 0;
+  animation: popFade 4s ease-in-out infinite;
+}
+.pop1 { animation-delay: 0s; }
+.pop2 { animation-delay: 0.5s; }
+.pop3 { animation-delay: 1s; }
+.pop4 { animation-delay: 1.5s; }
+
+@keyframes popFade {
+  0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+  20% { opacity: 1; transform: scale(1.05); }
+  70% { opacity: 1; }
+  100% { opacity: 0; transform: scale(0.9) translateY(-10px); }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .ny-card {
+    width: 92vw;
+    height: 90vh;
+  }
+}
+
+
+/* ===== EDGE CHARACTERS ===== */
+
+.edge-char {
+  position: absolute;
+  font-size: 1.8rem;
+  color: rgba(255, 215, 0, 0.9);
+  text-shadow: 0 0 10px gold;
+  animation: floatEdge 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Positions */
+.edge-char.tl { top: 18px; left: 18px; animation-delay: 0s; }
+.edge-char.tr { top: 18px; right: 18px; animation-delay: 1s; }
+.edge-char.bl { bottom: 18px; left: 18px; animation-delay: 2s; }
+.edge-char.br { bottom: 18px; right: 18px; animation-delay: 3s; }
+
+/* Floating animation */
+@keyframes floatEdge {
+  0%   { transform: translateY(0) scale(1); opacity: 0.8; }
+  50%  { transform: translateY(-6px) scale(1.1); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.8; }
+}
+
+
+/* ===== FLOATING SIDE LIGHTS ===== */
+
+.side-light {
+  position: absolute;
+  top: -20%;
+  width: 6px;
+  height: 140%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(251, 251, 249),
+    transparent
+  );
+  filter: blur(8px);
+  opacity: 0.8;
+  animation: floatLight 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Left & Right positioning */
+.side-light.left {
+  left: 2px;
+  animation-delay: 0s;
+}
+
+.side-light.right {
+  right: 2px;
+  animation-delay: 3s;
+}
+
+/* Floating animation */
+@keyframes floatLight {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== LUXURY BORDER ===== */
+.ny-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,215,0,0.9),
+    rgba(255,255,255,0.4),
+    rgba(255,215,0,0.9)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ===== GLASS LIGHT ===== */
+.ny-card::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  width: 140%;
+  height: 80%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.divider {
+  width: 120px;
+  height: 2px;
+  margin: 20px auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    gold,
+    transparent
+  );
+  opacity: 0.8;
+}

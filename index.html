@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Happy New Year 2026 🎆</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <canvas id="fireworks"></canvas>
+
+    <div class="ny-card">
+        <!-- Edge Characters -->
+        <span class="edge-char tl">✨</span>
+        <span class="edge-char tr">✦</span>
+        <span class="edge-char bl">❉</span>
+        <span class="edge-char br">★</span>
+
+        <!-- Side Floating Lights -->
+        <div class="side-light left"></div>
+        <div class="side-light right"></div>
+
+
+
+        <div class="decor top-left"></div>
+        <div class="decor top-right"></div>
+        <div class="decor bottom-left"></div>
+        <div class="decor bottom-right"></div>
+
+
+
+        <div class="content">
+            <h2 class="happy animate pop1">HAPPY</h2>
+            <h1 class="newyear animate pop2">New Year</h1>
+            <h1 class="year animate pop3">2026</h1>
+            <div class="divider"></div>
+
+
+            <p id="wish" class="message animate pop4">
+                May this year bring you endless joy,<br>
+                success, and unforgettable moments.
+            </p>
+
+            <input type="text" id="name" placeholder="Enter your name to generate yours:">
+
+            <div class="buttons">
+
+                <button onclick="shareWish()">📤 Share</button>
+                <button onclick="copyShareLink()">🔗 Copy Link</button>
+
+            </div>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
