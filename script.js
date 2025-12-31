@@ -305,3 +305,7 @@ function copyShareLink() {
     alert('Link copied! 🎉')
   })
 }
+
+document.getElementById('ny-card').addEventListener("click", () => {
+  music.play()
+});
