@@ -197,7 +197,7 @@ animate()
 /* ===== UI ===== */
 function generateWish() {
   const name = document.getElementById('name').value || 'Friend'
-  document.getElementById('wish').innerText = `🎉 Happy New Year From ${name}! 🎆✨,\n${randomQuote}`
+  document.getElementById('wish').innerText = `🎉 Happy New Year From ${name}! 🎆✨`
 }
 function toggleMusic() {
   music.paused ? music.play() : music.pause()
@@ -242,7 +242,7 @@ function generateWish(nameFromUrl = null) {
 
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
 
-  const wishText = `🎉Wishing you and your Family\n Happy New Year\n From ${name}! 🎆\n${randomQuote}`
+  const wishText = `🎉Wishing you and your Family\n Happy New Year\n From ${name}! 🎆`
 
   document.getElementById('wish').innerText = wishText
 }
@@ -283,7 +283,7 @@ function shareWish() {
   // Create shareable URL with name
   const shareUrl = `${baseUrl}?name=${encodeURIComponent(nameInput)}`
 
-  const message = `🎉 Happy New Year From ${nameInput}! 🎆✨\n${randomQuote}\n\nOpen your wish:\n${shareUrl}`
+  const message = `🎉 Happy New Year From ${nameInput}! 🎆✨\n\nOpen your wish:\n${shareUrl}`
 
   // WhatsApp share
   window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank')
