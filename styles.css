@@ -8,7 +8,7 @@
 body {
   height: 100vh;
   background: black;
-  overflow: hidden;
+  
 }
 
 /* Canvas behind card */
@@ -32,7 +32,7 @@ canvas {
   border-radius: 24px;
   background: radial-gradient(circle at top, #2c2f7a, #0b0f2f);
   box-shadow: 0 25px 60px rgba(0,0,0,0.85);
-  overflow: auto;
+  
   color: white;
   background-image:
     radial-gradient(circle at top, #2c2f7a, #0b0f2f),
@@ -140,12 +140,16 @@ canvas {
 /* ===== TEXT POP FADE ===== */
 .animate {
   opacity: 0;
-  animation: popFade 4s ease-in-out infinite;
+  animation: popFade 8s ease-in-out infinite;
 }
 .pop1 { animation-delay: 0s; }
 .pop2 { animation-delay: 0.5s; }
 .pop3 { animation-delay: 1s; }
-.pop4 { animation-delay: 1.5s; }
+.pop4 { animation-delay: 1.5s;
+  text-shadow: 2px 2px 8px rgb(123, 121, 113);
+  font-weight: bold;
+
+ }
 
 @keyframes popFade {
   0% { opacity: 0; transform: scale(0.8) translateY(20px); }

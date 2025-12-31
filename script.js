@@ -197,7 +197,9 @@ animate()
 /* ===== UI ===== */
 function generateWish() {
   const name = document.getElementById('name').value || 'Friend'
-  document.getElementById('wish').innerText = `🎉 Happy New Year From ${name}! 🎆✨`
+  document.getElementById(
+    'wish'
+  ).innerText = `🎉 Happy New Year From ${name}! 🎆✨`
 }
 function toggleMusic() {
   music.paused ? music.play() : music.pause()
@@ -212,6 +214,11 @@ function shareWish() {
 }
 /* ================= QUOTES ================= */
 const quotes = [
+  'नया साल 2026 आपके जीवन में खुशहाली, शांति और सफलता लेकर आए। हैप्पी न्यू ईयर ✨🎉',
+  'नए साल में आपके सपने पूरे हों और हर दिन नई उम्मीद लेकर आए।',
+  '“2026 आपके जीवन में तरक्की, मुस्कान और सुकून भर दे। शुभ नववर्ष ❤️”',
+  '“साल 2026 आपके लिए प्रेम, समृद्धि और अच्छे स्वास्थ्य का संदेश लाए।”',
+  '“ईश्वर करे नया साल आपके जीवन में सुख और शांति बनाए रखे।”',
   'Any new beginning is forged from the shards of the past, not from the abandonment of the past.',
   'In our perfect ways, in the ways we are beautiful, in the ways we are human — we are here. Happy New Year’s. Let’s make it ours.',
   "This year's book, at midnight turns to footnote in the next.",
@@ -228,7 +235,7 @@ const quotes = [
   'May this year surprise you with joy and success 🎆',
   'Turn every challenge into an opportunity this year 💖',
 ]
-
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
 /* ================= GET NAME FROM URL ================= */
 function getNameFromURL() {
   const params = new URLSearchParams(window.location.search)
@@ -240,9 +247,9 @@ function generateWish(nameFromUrl = null) {
   const input = document.getElementById('name')
   const name = nameFromUrl || input.value || 'Friend'
 
-  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
+  // const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
 
-  const wishText = `🎉Wishing you and your Family\n Happy New Year\n From ${name}! 🎆`
+  const wishText = `🎉Wishing you and your Family\n Happy New Year\n\n From ${name}! 🎆\n\n${randomQuote}`
 
   document.getElementById('wish').innerText = wishText
 }
@@ -254,7 +261,7 @@ window.addEventListener('load', () => {
   if (urlName) {
     const formattedName = urlName.charAt(0).toUpperCase() + urlName.slice(1)
 
-    document.getElementById('name').value = formattedName
+    // document.getElementById('name').value = formattedName
     generateWish(formattedName)
   }
 })
@@ -283,7 +290,7 @@ function shareWish() {
   // Create shareable URL with name
   const shareUrl = `${baseUrl}?name=${encodeURIComponent(nameInput)}`
 
-  const message = `🎉 Happy New Year From ${nameInput}! 🎆✨\n\nOpen your wish:\n${shareUrl}`
+  const message = `🎉 Happy New Year From ${nameInput}! 🎆✨\n${randomQuote}\n\nOpen your wish:\n${shareUrl}`
 
   // WhatsApp share
   window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank')
